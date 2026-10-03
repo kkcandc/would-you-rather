@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Would You Rather</title>
+    <meta
+      name="description"
+      content="A pass-and-play living-room dare game. Pick a card, actually do it, then pass the screen."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div id="app">
+      <button id="mute" type="button" aria-pressed="false">Sound on</button>
+      <main id="stage"></main>
+      <dialog id="roster"></dialog>
+    </div>
+    <canvas id="confetti" aria-hidden="true"></canvas>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

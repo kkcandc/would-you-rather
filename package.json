@@ -1,0 +1,20 @@
+{
+  "name": "would-you-rather",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "check": "tsx scripts/check-deck.ts"
+  },
+  "dependencies": {
+    "@fontsource/fredoka": "^5.2.8"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vite": "^6.3.6"
+  }
+}

@@ -28,14 +28,6 @@ mute.addEventListener("click", () => {
   paintMute();
 });
 
-document.addEventListener(
-  "pointerdown",
-  () => {
-    void sounds.unlock();
-  },
-  { once: true },
-);
-
 document.addEventListener("keydown", (event) => {
   if (event.target instanceof HTMLInputElement) return;
   if (event.key === "m" || event.key === "M") {

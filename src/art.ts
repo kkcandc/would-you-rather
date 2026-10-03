@@ -138,7 +138,7 @@ function legs(kind: Legs): string {
 function prop(icon: Icon): string {
   switch (icon) {
     case "pillow":
-      return `<g><rect x="128" y="28" width="84" height="42" rx="16" fill="#fff" stroke="${INK}" stroke-width="4"/><path d="M170 34 V64" stroke="${INK}" stroke-width="3"/></g>`;
+      return `<g><rect x="108" y="52" width="120" height="40" rx="18" fill="#fff" stroke="${INK}" stroke-width="4"/><path d="M168 56 V88" stroke="${INK}" stroke-width="3" stroke-dasharray="3 3"/><path d="M124 72 H212" stroke="#ffb3c7" stroke-width="5" stroke-linecap="round"/></g>`;
     case "paper":
       return `<g><rect x="204" y="142" width="74" height="58" rx="6" fill="#fff" stroke="${INK}" stroke-width="4"/><path d="M216 160 Q232 148 248 166 T274 158" fill="none" stroke="#4361ee" stroke-width="3" stroke-linecap="round"/><path d="M254 176 H270" stroke="#ff5d3a" stroke-width="3" stroke-linecap="round"/></g>`;
     case "shoe":
@@ -212,7 +212,7 @@ export function renderScene(scene: Scene): string {
   const behind = scene.prop === "fort" ? prop(scene.prop) : "";
   const front = scene.prop === "fort" ? "" : prop(scene.prop);
   return `
-    <svg class="scene" viewBox="0 0 320 230" role="img" aria-hidden="true">
+    <svg class="scene" viewBox="0 0 320 230" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
       <rect width="320" height="230" fill="${scene.sky}"/>
       <circle cx="42" cy="40" r="16" fill="#fff4b8" stroke="${INK}" stroke-width="3"/>
       <g fill="#fff" opacity="0.9">

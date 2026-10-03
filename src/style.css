@@ -32,7 +32,7 @@ body::after {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 92px;
+  height: 46px;
   background: repeating-linear-gradient(
     90deg,
     #e76f51 0 28px,
@@ -94,7 +94,7 @@ input:focus-visible {
 #stage {
   width: min(1080px, calc(100% - 24px));
   margin: 0 auto;
-  padding: 4.5rem 0 8.5rem;
+  padding: 4.5rem 0 5.5rem;
 }
 
 #confetti {
@@ -437,7 +437,23 @@ h1 span:last-child {
   display: grid;
   justify-items: center;
   text-align: center;
-  gap: 0.8rem;
+  gap: 0.75rem;
+}
+
+.countdown .chosen {
+  width: min(680px, 100%);
+  display: grid;
+  grid-template-columns: minmax(150px, 220px) minmax(0, 1fr);
+  align-items: stretch;
+}
+
+.countdown .chosen .art {
+  border-bottom: none;
+  border-right: 4px solid var(--ink);
+}
+
+.countdown .chosen .dare-text {
+  align-self: center;
 }
 
 .who {
@@ -482,17 +498,18 @@ h1 span:last-child {
 
 .timer {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 148px;
+  height: 148px;
   display: grid;
   place-items: center;
+  margin: 0.15rem 0 0.85rem;
 }
 
 .timer-svg {
   position: absolute;
   inset: 0;
-  width: 150px;
-  height: 150px;
+  width: 148px;
+  height: 148px;
 }
 
 .ring-bg,
@@ -512,7 +529,8 @@ h1 span:last-child {
 
 .count-num {
   position: relative;
-  font-size: 4.2rem;
+  z-index: 1;
+  font-size: 3.8rem;
   font-weight: 700;
   line-height: 1;
 }
@@ -611,6 +629,47 @@ dialog#roster::backdrop {
 
 @keyframes pulse {
   50% { transform: scale(1.12); }
+}
+
+@media (max-width: 859px) {
+  #stage { padding-top: 3.75rem; }
+
+  .prompt {
+    font-size: 1.45rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .card .art {
+    display: flex;
+    justify-content: center;
+    height: 118px;
+  }
+
+  .card .scene {
+    width: 100%;
+    height: 118px;
+  }
+
+  .card-copy { padding: 0.65rem 0.8rem 0.8rem; }
+
+  .dare-text { font-size: 1.08rem; }
+
+  .or {
+    width: 62px;
+    height: 62px;
+  }
+}
+
+@media (max-width: 640px) {
+  .countdown .chosen {
+    grid-template-columns: 1fr;
+  }
+
+  .countdown .chosen .art {
+    border-right: none;
+    border-bottom: 4px solid var(--ink);
+    height: 140px;
+  }
 }
 
 @media (min-width: 860px) {

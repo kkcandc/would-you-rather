@@ -19,7 +19,73 @@ for (const dare of DARES) {
   }
 }
 
-if (DARES.length < 40) fail(`only ${DARES.length} dares`);
+const BASELINE_DARES = 63;
+const ADDED_DARES = 50;
+if (DARES.length !== BASELINE_DARES + ADDED_DARES) {
+  fail(`expected ${BASELINE_DARES + ADDED_DARES} dares (${BASELINE_DARES} plus ${ADDED_DARES}), found ${DARES.length}`);
+}
+
+const addedIds = [
+  "clap-name",
+  "spy-tiptoe",
+  "stadium-intro",
+  "slow-clap",
+  "invisible-drums",
+  "couch-cheer",
+  "echo-sentence",
+  "disco-points",
+  "fancy-accent",
+  "crab-clap",
+  "lamp-lasso",
+  "pillow-secret",
+  "robot-hello",
+  "countdown-stick",
+  "penguin-hello",
+  "yawn-speech",
+  "invisible-trophy",
+  "statue-blink",
+  "hop-clap",
+  "pillow-news",
+  "self-conduct",
+  "shoe-cheer",
+  "air-guitar",
+  "whisper-shout",
+  "march-names",
+  "slow-sit",
+  "mirror-hands",
+  "cloud-report",
+  "knight-cushion",
+  "count-blinks",
+  "opera-hello",
+  "tiptoe-turn",
+  "self-handshake",
+  "worm-finger",
+  "tiny-burps",
+  "knee-sniff",
+  "tongue-hair",
+  "pudding-shoes",
+  "hand-raspberry",
+  "chair-apology",
+  "pinch-nose",
+  "sand-chew",
+  "elbow-review",
+  "fly-swat",
+  "haunted-sock",
+  "silly-pickle",
+  "shoe-fan",
+  "raisin-couch",
+  "wet-dog",
+  "belly-rumble",
+];
+if (addedIds.length !== ADDED_DARES) fail(`listed ${addedIds.length} new ids`);
+const missingAdded = addedIds.filter((id) => !ids.has(id));
+if (missingAdded.length > 0) fail(`missing new dares: ${missingAdded.join(", ")}`);
+
+const texts = new Set<string>();
+for (const dare of DARES) {
+  if (texts.has(dare.text)) fail(`duplicate text on ${dare.id}`);
+  texts.add(dare.text);
+}
 const gross = DARES.filter((dare) => dare.gross).length;
 const ratio = gross / DARES.length;
 if (ratio < 0.28 || ratio > 0.4) fail(`gross ratio ${ratio.toFixed(2)} is outside about a third`);
